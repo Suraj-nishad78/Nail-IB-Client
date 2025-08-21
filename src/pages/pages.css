@@ -149,3 +149,65 @@
   border-bottom: 1px solid #000;
   cursor: pointer;
 }
+
+/*---------- Home Page Style -------*/
+.home-container {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.intro-container,
+.msg-box-home {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #e7eaf7, #c3cfe2);
+}
+.educators-container{
+  width: 100%;
+  background: linear-gradient(135deg, #e7eaf7, #c3cfe2);
+}
+
+.intro-container {
+  height: 100vh;
+}
+
+.msg-box-home {
+  height: 100vh;
+}
+
+.scroll-space {
+  height: 200vh; /* Ensures enough scroll area */
+}
+
+/*---------Image Setup--------------*/
+.msg-main-container{
+  position: relative;
+}
+
+ .msg-main-container #image-1{
+    position: absolute;
+    top: 10%;
+    left: 0px;
+    width: 250px;
+    transform: rotate(330deg);
+  }
+  .msg-main-container #image-2{
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    width: 250px;
+    transform: rotate(330deg);
+  }
+  .msg-main-container #image-3{
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    width: 250px;
+    transform: rotate(330deg);
+}
+

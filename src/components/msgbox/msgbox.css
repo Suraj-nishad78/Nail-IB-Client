@@ -1,0 +1,116 @@
+.msg-box {
+  margin: 100px auto;
+  max-width: 600px;
+  background: linear-gradient(145deg, #ffffff, #f8f9ff);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  text-align: left;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: "Poppins", sans-serif;
+  border: 1px solid rgba(79, 70, 229, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative gradient glow */
+.msg-box::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.08) 10%, transparent 70%);
+  transform: rotate(25deg);
+  z-index: 0;
+}
+
+/* Heading (question) */
+.msg-box h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #4f46e5;
+  margin-bottom: 16px;
+  padding-bottom: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.msg-box h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: #4f46e5;
+  border-radius: 2px;
+}
+
+/* Main content */
+.msg-box p {
+  font-size: 1rem;
+  color: #2b2b2b;
+  line-height: 1.7;
+  margin: 14px 0;
+  z-index: 1;
+  position: relative;
+}
+
+.msg-box strong {
+  color: #4f46e5;
+  font-weight: 600;
+}
+
+/* Hint/CTA */
+.hint {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(90deg, #4f46e5, #6366f1);
+  padding: 8px 14px;
+  border-radius: 50px;
+  display: inline-block;
+  margin-top: 18px;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
+  transition: all 0.3s ease;
+}
+
+.hint:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(79, 70, 229, 0.3);
+}
+
+/* Collapsed State */
+.msg-box.collapsed {
+  max-width: 320px;
+  padding: 14px 20px;
+  transition: all 0.8s ease-in-out;
+  border-left: 3px solid #4f46e5;
+}
+
+/* Collapsed text only */
+.msg-box.collapsed h3,
+.msg-box.collapsed p:not(.collapsed-text) {
+  display: none;
+}
+
+.collapsed-text {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #4f46e5;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  text-align: center;
+  animation: floatText 1.8s ease-in-out infinite;
+}
+
+@keyframes floatText {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
