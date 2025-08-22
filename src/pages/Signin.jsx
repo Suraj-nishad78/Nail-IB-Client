@@ -46,10 +46,6 @@ const Signin = () => {
 
   async function submitLogin(form) {
     try {
-    // const res = await axios.post(
-    //   "http://localhost:4000/api/users/signin",
-    //   form
-    // );
     const res = await axios.post(
       `${import.meta.env.VITE_API_URL}/api/users/signin`,
       form

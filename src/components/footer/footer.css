@@ -1,0 +1,97 @@
+/*------------- FOOTER ------------*/
+.footerbar {
+    position: relative;
+    padding-top: 1rem;
+    margin:0rem 4.5rem 0rem 5rem;
+    display: grid;
+    grid-template-columns: 13rem 7rem 12rem 10rem 12rem;
+    column-gap: 6rem;
+}
+.footerbar li{
+    list-style: none;
+}
+.footer-icon img {
+    max-width: 8rem;
+    height: 1.6rem;
+}
+.footer-icon span {
+    font-size: 1.2em;
+    position: relative;
+    top: -.5rem;
+    left: .5em;
+    color: rgba(128, 128, 128,.8);
+}
+.footer-icon p{
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    color: rgba(128, 128, 128,.8);
+}
+.footer-icon ul {
+    margin-top: 1.5rem;
+}
+.footer-icon ul li{
+    margin-top: .5rem;
+    display: inline-block;
+    padding: 0rem .3rem;
+}
+.footer-icon ul li i{
+    border: 1px solid gray;
+    width: 1rem;
+    height: .8rem;
+    border-radius: 50%;
+    font-size: 1rem;
+    padding: .5rem;
+    background-color: rgba(128, 128, 128,.8);
+    color: black;
+    font-weight: bold;
+}
+.footer-icon ul li i:hover{
+    color: white;
+    background-color: slategrey;
+    cursor: pointer;
+}
+.footer-content h2{
+    margin-top: .2rem;
+    font-size: 1.5rem;
+}
+.footer-content ul{
+    margin-top: 1.3rem;
+}
+.footer-content li {
+    margin-top: .4rem;
+    font-size: 1.1rem;
+    color: rgba(128, 128, 128,.9);
+}
+.footer-content li:hover{
+    color: #4f46e5;
+    cursor: pointer;
+}
+/*-------- footer-bottom ------*/
+.footer-bottom {
+    margin:2rem 4.7rem 0rem 5rem;
+    padding-bottom: 1rem;
+}
+.footer-title{
+    display: grid;
+    grid-template-columns: 25rem 18rem;
+    column-gap: 29rem;
+    padding: 0rem 2rem;
+}
+.footer-bottom h1 {
+    border: 1px solid gray;
+    width: 100%;
+    height: .1rem;
+}
+.bottom-left-content p{
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    color: rgba(128, 128, 128,.9);
+}
+.bottom-right-content p{
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    color: rgba(128, 128, 128,.9);
+}
+.bottom-right-content p i{
+    color: rgb(238, 45, 45);
+}

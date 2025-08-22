@@ -3,6 +3,8 @@ import "./pages.css";
 import Intro from "../components/intro/Intro";
 import MsgBox from "../components/msgbox/MsgBox";
 import Educators from "../components/educator/Educators";
+import Testmonials from "../components/testmonials/Testmonials";
+import Footer from "../components/footer/Footer";
 
 const Home = () => {
   return (
@@ -30,6 +32,12 @@ const Home = () => {
         </div>
         <div className="educators-container">
             <Educators />
+        </div>
+        <div className="testmonials-container">
+          <Testmonials />
+        </div>
+        <div className="footer-container">
+          <Footer />
         </div>
       </div>
     </>

@@ -167,7 +167,9 @@
   align-items: center;
   background: linear-gradient(135deg, #e7eaf7, #c3cfe2);
 }
-.educators-container{
+.educators-container,
+.testmonials-container,
+.footer-container {
   width: 100%;
   background: linear-gradient(135deg, #e7eaf7, #c3cfe2);
 }
@@ -185,29 +187,28 @@
 }
 
 /*---------Image Setup--------------*/
-.msg-main-container{
+.msg-main-container {
   position: relative;
 }
 
- .msg-main-container #image-1{
-    position: absolute;
-    top: 10%;
-    left: 0px;
-    width: 250px;
-    transform: rotate(330deg);
-  }
-  .msg-main-container #image-2{
-    position: absolute;
-    top: 50%;
-    left: 0px;
-    width: 250px;
-    transform: rotate(330deg);
-  }
-  .msg-main-container #image-3{
-    position: absolute;
-    top: 20px;
-    right: 40px;
-    width: 250px;
-    transform: rotate(330deg);
+.msg-main-container #image-1 {
+  position: absolute;
+  top: 10%;
+  left: 0px;
+  width: 250px;
+  transform: rotate(330deg);
 }
-
+.msg-main-container #image-2 {
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  width: 250px;
+  transform: rotate(330deg);
+}
+.msg-main-container #image-3 {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  width: 250px;
+  transform: rotate(330deg);
+}

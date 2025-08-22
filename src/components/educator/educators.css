@@ -173,34 +173,21 @@
 
 #educators-video-container {
   display: flex;
-  overflow-x: auto; /* Horizontal scroll */
-  overflow-y: hidden; /* Prevent vertical scroll */
-  gap: 28px; /* Space between cards */
-  padding: 20px 60px; /* Nice left & right spacing */
-  /* scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch; */
-  max-width: 100%; /* Restrict container width */
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 28px; 
+  padding: 20px 60px; 
+  max-width: 100%;
   margin: 10px 100px;
+  scrollbar-width: none;
 }
 
-/* #educators-video-container::-webkit-scrollbar {
-  height: 8px;
-}
-
-#educators-video-container::-webkit-scrollbar-thumb {
-  background: #aaa;
-  border-radius: 4px;
-}
-
-#educators-video-container::-webkit-scrollbar-thumb:hover {
-  background: #777;
-} */
 
 .educators-scroll-wrapper {
   position: relative;
   width: 100%;
-  overflow-x: hidden; /* Hides horizontal scroll bar */
-  overflow-y: visible; /* Keep vertical scroll if needed */
+  overflow-x: hidden;
+  overflow-y: visible;
   scroll-behavior: smooth;
 }
 

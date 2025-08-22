@@ -11,7 +11,7 @@ const EducatorCard = ({educator}) => {
           frameBorder="0"
           allowFullScreen
           loading="lazy"
-          allow="autoplay"
+          // allow="autoplay"
         ></iframe>
       </div>
 
@@ -25,9 +25,6 @@ const EducatorCard = ({educator}) => {
         {educator.course.map((course,index)=>(
         <span className="course-tag" key={index}>{course}</span>
         ))}
-        {/* <span className="course-tag">Mathematics AA SL</span>
-        <span className="course-tag">Mathematics AA HL</span>
-        <span className="course-tag">Mathematics AI HL</span> */}
       </div>
     </div>
   );
