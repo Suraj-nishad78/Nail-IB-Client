@@ -1,3 +1,4 @@
+/* ---------- Base Msg Box ---------- */
 .msg-box {
   margin: 100px auto;
   max-width: 600px;
@@ -26,9 +27,9 @@
   z-index: 0;
 }
 
-/* Heading (question) */
+/* Heading */
 .msg-box h3 {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: #4f46e5;
   margin-bottom: 16px;
@@ -82,15 +83,13 @@
   box-shadow: 0 6px 15px rgba(79, 70, 229, 0.3);
 }
 
-/* Collapsed State */
+/* ---------- Collapsed State ---------- */
 .msg-box.collapsed {
   max-width: 320px;
   padding: 14px 20px;
-  transition: all 0.8s ease-in-out;
   border-left: 3px solid #4f46e5;
 }
 
-/* Collapsed text only */
 .msg-box.collapsed h3,
 .msg-box.collapsed p:not(.collapsed-text) {
   display: none;
@@ -112,5 +111,66 @@
   }
   50% {
     transform: translateY(-4px);
+  }
+}
+
+/* ---------- Responsive Design ---------- */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .msg-box {
+    max-width: 90%;
+    padding: 28px;
+  }
+
+  .msg-box h3 {
+    font-size: 1.3rem;
+  }
+
+  .msg-box p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .msg-box {
+    margin: 60px auto;
+    padding: 24px;
+  }
+
+  .msg-box h3 {
+    font-size: 1.2rem;
+  }
+
+  .msg-box p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .hint {
+    font-size: 0.9rem;
+    padding: 7px 12px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .msg-box {
+    margin: 40px 16px;
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .msg-box h3 {
+    font-size: 1.1rem;
+  }
+
+  .msg-box p {
+    font-size: 0.88rem;
+  }
+
+  .collapsed-text {
+    font-size: 0.9rem;
   }
 }

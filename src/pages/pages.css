@@ -149,6 +149,51 @@
   border-bottom: 1px solid #000;
   cursor: pointer;
 }
+/*------------Responsive code---------*/
+/* Tablet Styles */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .signup-card {
+    max-width: 380px; /* Slightly wider for tablets */
+    padding: 2.5rem;
+  }
+
+  .signup-title {
+    font-size: 24px;
+  }
+}
+
+/* Laptop & Desktop Styles */
+@media (min-width: 1024px) {
+  .signup-card {
+    max-width: 420px;
+    padding: 3rem;
+  }
+
+  .signup-title {
+    font-size: 26px;
+  }
+
+  .signup-form button {
+    font-size: 18px;
+  }
+}
+
+/* Small Mobile (optional fine-tuning for very small screens) */
+@media (max-width: 480px) {
+  .signup-card {
+    max-width: 90%; /* Use almost full width */
+    padding: 1.5rem;
+  }
+
+  .signup-title {
+    font-size: 20px;
+  }
+
+  .signup-form button {
+    font-size: 14px;
+  }
+}
+
 
 /*---------- Home Page Style -------*/
 .home-container {

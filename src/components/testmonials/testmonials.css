@@ -1,16 +1,13 @@
-
 /* Main Container */
 .testmonials-content {
   text-align: center;
   padding: 60px 20px;
-  /* background-color: #f5f8fa; */
   border-radius: 12px;
   max-width: 900px;
   margin: 0 auto;
   font-family: "Segoe UI", Arial, sans-serif;
 }
 
-/* Heading */
 .testmonials-content h1 {
   font-size: 2.5rem;
   font-weight: 800;
@@ -19,7 +16,6 @@
   margin-bottom: 25px;
 }
 
-/* Paragraph */
 .testmonials-content p {
   font-size: 1.2rem;
   max-width: 800px;
@@ -28,27 +24,27 @@
   color: #2b2b2b;
   font-weight: 400;
 }
-/*----------testmonials member------------*/
+
+/* Testmonials Horizontal Scroll */
 .testmonials-memeber {
   display: flex;
   gap: 2rem;
   overflow-x: auto;
   scroll-behavior: smooth;
-  margin: 10px 80px;
+  margin: 20px 80px;
   padding: 2rem;
-  -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
-  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar IE/Edge */
+  scrollbar-width: none; /* Hide scrollbar Firefox */
 }
 
 .testmonials-memeber::-webkit-scrollbar {
-  display: none; /* Hide scrollbar in Chrome/Safari */
+  display: none; /* Hide scrollbar Chrome/Safari */
 }
 
-
-/*------------test Member content------------*/
+/* Testimonial Card */
 .test-member-content {
   background: linear-gradient(135deg, #e7eaf7, #848fa3);
-  flex: 0 0 300px; /* Fixed width */
+  flex: 0 0 300px;
   border-radius: 20px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   padding: 2rem;
@@ -72,7 +68,6 @@
 
 .test-member-content p {
   font-size: 0.95rem;
-  /* color: #555; */
   color: #555;
   margin-bottom: 1rem;
   line-height: 1.6;
@@ -85,4 +80,101 @@
   font-weight: 600;
   color: #4f46e5;
   margin-top: 0.5rem;
+}
+
+/* ---------------- Responsive Breakpoints ---------------- */
+
+/* Tablets (≤1024px) */
+@media (max-width: 1024px) {
+  .testmonials-content h1 {
+    font-size: 2rem;
+  }
+
+  .testmonials-content p {
+    font-size: 1.1rem;
+    padding: 0 15px;
+  }
+
+  .testmonials-memeber {
+    margin: 20px 40px;
+    gap: 1.5rem;
+  }
+
+  .test-member-content {
+    flex: 0 0 260px;
+    padding: 1.5rem;
+  }
+}
+
+/* Large Mobile (≤768px) */
+@media (max-width: 768px) {
+  .testmonials-content {
+    padding: 40px 15px;
+  }
+
+  .testmonials-content h1 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+
+  .testmonials-memeber {
+    margin: 10px 20px;
+    gap: 1rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .test-member-content {
+    flex: 0 0 220px;
+    padding: 1.2rem;
+  }
+
+  .test-member-content img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .test-member-content p {
+    font-size: 0.9rem;
+  }
+
+  .test-member-content h3 {
+    font-size: 1rem;
+  }
+}
+
+/* Small Mobile (≤480px) */
+@media (max-width: 480px) {
+  .testmonials-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .testmonials-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .testmonials-memeber {
+    margin: 5px 10px;
+    gap: 0.8rem;
+    padding: 1rem 0.5rem;
+  }
+
+  .test-member-content {
+    flex: 0 0 180px;
+    padding: 1rem;
+    border-radius: 14px;
+  }
+
+  .test-member-content img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .test-member-content p {
+    font-size: 0.85rem;
+  }
+
+  .test-member-content h3 {
+    font-size: 0.95rem;
+  }
 }
