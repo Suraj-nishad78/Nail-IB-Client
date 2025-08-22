@@ -12,13 +12,22 @@ function App() {
   // State to hold userId
   const [userId, setUserId] = useState(localStorage.getItem("userId") || "");
 
-  useEffect(()=>{
+  useEffect(() => {
     if (userId) {
       localStorage.setItem("userId", userId);
     } else {
       localStorage.removeItem("userId");
     }
-  },[userId])
+  }, [userId]);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if(savedTheme=="dark"){
+      document.body.classList.add("dark-theme");
+    }else{
+      document.body.classList.add("light");
+    }
+  }, []);
 
   // Shared context value
   const sharedDataUser = { userId, setUserId };

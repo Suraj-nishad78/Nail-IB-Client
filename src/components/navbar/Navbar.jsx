@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const { userId, setUserId } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -16,7 +17,17 @@ const Navbar = () => {
     toast.success("You have successfully logged out!");
   };
 
-  useEffect(() => {}, [userId]);
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    document.body.classList.toggle("dark-theme");
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  };
+  
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
 
   return (
     <nav className="navbar">
@@ -36,7 +47,7 @@ const Navbar = () => {
             <li><Link to="/">IB Resources</Link></li>
             <li><Link to="/">Schools</Link></li>
             <li><Link to="/">Past Papers</Link></li>
-            <li><Link to="/">Questio Bank</Link></li>
+            <li><Link to="/">Question Bank</Link></li>
             <li><Link to="/">Pricing</Link></li>
 
             {/* Register Button inside Mobile Menu */}
@@ -52,6 +63,7 @@ const Navbar = () => {
 
         {/* CTA for Desktop/Tablet */}
         <div className="navbar-cta">
+          
           {userId ? (
             <button className="login" onClick={logoutUser}>
               Logout
@@ -61,6 +73,9 @@ const Navbar = () => {
               Register (it's Free)
             </Link>
           )}
+          <button className="theme-toggle" onClick={toggleTheme}>
+            {theme === "light" ? "🌙" : "☀️"}
+          </button>
         </div>
 
         {/* Hamburger Toggle Button */}

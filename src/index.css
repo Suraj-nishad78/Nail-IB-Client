@@ -11,3 +11,6 @@ body{
   background: linear-gradient(135deg, #e7eaf7, #c3cfe2);
 }
 
+body.dark-theme{
+  --footer-bg: linear-gradient(135deg, #1c1c1f, #2c2c34);
+}

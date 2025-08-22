@@ -1,10 +1,45 @@
-/* Main Container */
+/* ================== THEME VARIABLES ================== */
+:root {
+  /* --primary-bg: #f5f8fa; */
+  --primary-bg: linear-gradient(135deg, #e7eaf7, #c3cfe2);
+  --primary-text: #000;
+  --secondary-text: #2b2b2b;
+  --highlight-color: #4f46e5;
+  --card-bg: #ffffff;
+  --card-text: #1f2937;
+  --card-subtext: #4b5563;
+  --border-color: #e5e7eb;
+  --button-bg: #4f46e5;
+  --button-hover-bg: #3730a3;
+  --tag-bg: #b5c4e9;
+  --tag-hover-bg: #e0ecff;
+}
+
+[data-theme="dark"] {
+  /* --primary-bg: #121212; */
+  --primary-bg: linear-gradient(135deg, #1c1c1f, #2c2c34);
+  --primary-text: #ffffff;
+  --secondary-text: #cccccc;
+  --highlight-color: #818cf8;
+  --card-bg: #1e1e1e;
+  --card-text: #ffffff;
+  --card-subtext: #a3a3a3;
+  --border-color: #333333;
+  --button-bg: #6366f1;
+  --button-hover-bg: #4f46e5;
+  --tag-bg: #2d2d3a;
+  --tag-hover-bg: #3f3f50;
+}
+
+/* ================== MAIN CONTAINER ================== */
 .educators-content {
   text-align: center;
   padding: 60px 20px;
-  /* background-color: #f5f8fa; */
+  background-color: var(--primary-bg);
   border-radius: 12px;
-  max-width: 900px;
+  /* max-width: 900px; */
+  /* width: 100%;
+  height: 100%; */
   margin: 0 auto;
   font-family: "Segoe UI", Arial, sans-serif;
 }
@@ -13,14 +48,13 @@
 .educators-content h1 {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #000;
+  color: var(--primary-text);
   text-transform: uppercase;
   margin-bottom: 25px;
 }
 
 .educators-content h1 span {
-  /* color: #0073ff; */
-  color: #4f46e5;
+  color: var(--highlight-color);
 }
 
 /* Paragraph */
@@ -29,34 +63,26 @@
   max-width: 800px;
   margin: 0 auto 28px;
   line-height: 1.8;
-  color: #2b2b2b;
+  color: var(--secondary-text);
   font-weight: 400;
 }
 
 .educators-content p strong {
-  /* color: #0073ff; */
-  color: #4f46e5;
+  color: var(--highlight-color);
   font-weight: 600;
 }
 
-.educators-content p em {
-  color: #555;
-  font-style: italic;
-}
-
 .educators-content p span.highlight {
-  background: rgba(0, 115, 255, 0.1);
+  background: rgba(79, 70, 229, 0.1);
   padding: 2px 6px;
   border-radius: 4px;
-  /* color: #0073ff; */
-  color: #4f46e5;
+  color: var(--highlight-color);
   font-weight: 600;
 }
 
 /* Button */
 .educators-content button {
-  /* background-color: #0073ff; */
-  background-color: #4f46e5;
+  background-color: var(--button-bg);
   color: white;
   border: none;
   padding: 14px 26px;
@@ -68,39 +94,34 @@
 }
 
 .educators-content button:hover {
-  background-color: #4f46e5;
-  /* background-color: #005ad6; */
+  background-color: var(--button-hover-bg);
   transform: translateY(-2px);
 }
 
 /* Sign-up link */
 .educators-content p:last-of-type {
   font-size: 0.95rem;
-  /* color: #0073ff; */
-  color: #4f46e5;
+  color: var(--highlight-color);
   cursor: pointer;
   margin-top: 12px;
   text-decoration: underline;
 }
 
 .educators-content p:last-of-type:hover {
-  /* color: #005ad6; */
-  /* font-size: ; */
-  color: #4f46e5;
+  color: var(--button-hover-bg);
 }
-/*-------------Edcucators card------------*/
+
+/* ================== EDUCATOR CARD ================== */
 .educator-card {
-  min-width: 300px; /* Fixed card width for consistency */
+  min-width: 300px;
   max-width: 300px;
-  flex-shrink: 0; /* Prevent shrinking in horizontal scroll */
-  background: #ffffff;
+  flex-shrink: 0;
+  background: var(--card-bg);
   border-radius: 14px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   padding: 20px 18px;
   text-align: left;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
-  position: relative;
-  overflow: hidden;
 }
 
 .educator-card:hover {
@@ -108,7 +129,6 @@
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
 }
 
-/* Video Styling */
 .educator-video iframe {
   width: 100%;
   height: 180px;
@@ -116,78 +136,67 @@
   border: none;
 }
 
-/* Name */
 .educator-name {
   font-size: 1.2rem;
   font-weight: 700;
   margin-top: 14px;
-  color: #1f2937;
-  letter-spacing: 0.3px;
+  color: var(--card-text);
 }
 
-/* Details */
 .educator-details {
   font-size: 0.95rem;
-  color: #4b5563;
+  color: var(--card-subtext);
   margin: 8px 0 14px 0;
   line-height: 1.5;
 }
 
-/* Courses Title */
 .video-courses-title {
   font-size: 1rem;
   font-weight: 600;
-  color: #374151;
+  color: var(--card-text);
   margin-bottom: 10px;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 6px;
 }
 
-/* Course Tags */
 .video-courses {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  /* justify-content: center; */
 }
 
 .course-tag {
   font-size: 0.8rem;
-  /* background: #f9fafb; */
-  background: #b5c4e9;
+  background: var(--tag-bg);
   border-radius: 8px;
   padding: 6px 12px;
-  border: 1px solid #e5e7eb;
-  color: #374151;
+  border: 1px solid var(--border-color);
+  color: var(--card-text);
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .course-tag:hover {
-  background: #e0ecff;
-  color: #1a56db;
-  border-color: #1a56db;
+  background: var(--tag-hover-bg);
+  color: var(--highlight-color);
 }
 
-
+/* ================== SCROLL CONTAINER ================== */
 #educators-video-container {
   display: flex;
   overflow-x: auto;
-  overflow-y: hidden;
-  gap: 28px; 
-  padding: 20px 60px; 
+  gap: 28px;
+  padding: 20px 60px;
   max-width: 100%;
   margin: 10px 100px;
   scrollbar-width: none;
 }
 
-
 .educators-scroll-wrapper {
   position: relative;
   width: 100%;
   overflow-x: hidden;
-  overflow-y: visible;
   scroll-behavior: smooth;
 }
 
@@ -195,7 +204,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: #a6bdd6;
+  background: var(--tag-bg);
   color: white;
   border: none;
   border-radius: 50%;
@@ -214,9 +223,7 @@
   right: 50px;
 }
 
-/* ====== RESPONSIVE DESIGN ====== */
-
-/* Large Tablets (1024px and below) */
+/* ================== RESPONSIVE DESIGN ================== */
 @media (max-width: 1024px) {
   #educators-video-container {
     padding: 20px 30px;
@@ -232,7 +239,6 @@
   }
 }
 
-/* Tablets (768px and below) */
 @media (max-width: 768px) {
   .educators-content h1 {
     font-size: 2rem;
@@ -254,11 +260,10 @@
   }
 
   .scroll-btn {
-    display: none; /* Hide buttons on touch devices */
+    display: none;
   }
 }
 
-/* Mobile (480px and below) */
 @media (max-width: 480px) {
   .educators-content {
     padding: 40px 15px;
@@ -286,7 +291,6 @@
     padding: 16px;
   }
 
-  /* Hide "Register (it's free)" link on mobile */
   .educators-content p:last-of-type {
     display: none;
   }

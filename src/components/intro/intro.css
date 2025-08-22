@@ -1,3 +1,25 @@
+/* ---------- Theme Variables ---------- */
+:root {
+  --bg-gradient: linear-gradient(135deg, #e7eafc 0%, #d4d8f0 100%);
+  --text-color: #1c1c1c;
+  --subtext-color: #3f3f3f;
+  --button-bg: linear-gradient(135deg, #1f1f1f, #333);
+  --button-hover-bg: linear-gradient(135deg, #333, #000);
+  --button-text: #fff;
+  --glow-color: rgba(255, 255, 255, 0.6);
+}
+
+body.dark-theme {
+  /* --bg-gradient: linear-gradient(135deg, #121212 0%, #1c1c1c 100%); */
+  --bg-gradient: linear-gradient(135deg, #1c1c1f, #2c2c34);
+  --text-color: #f5f5f5;
+  --subtext-color: #cfcfcf;
+  --button-bg: linear-gradient(135deg, #e0e0e0, #cfcfcf);
+  --button-hover-bg: linear-gradient(135deg, #ffffff, #dddddd);
+  --button-text: #000;
+  --glow-color: rgba(255, 255, 255, 0.2);
+}
+
 /* ---------- Base Hero Section ---------- */
 .landing-container {
   display: flex;
@@ -6,7 +28,7 @@
   width: 100%;
   min-height: 100vh;
   padding: 0 8vw;
-  background: linear-gradient(135deg, #e7eafc 0%, #d4d8f0 100%);
+  background: var(--bg-gradient);
   overflow: hidden;
   position: relative;
   box-sizing: border-box;
@@ -24,14 +46,14 @@
 .landing-content h1 {
   font-size: 3rem;
   font-weight: 800;
-  color: #1c1c1c;
+  color: var(--text-color);
   margin-bottom: 20px;
   line-height: 1.2;
 }
 
 .landing-content p {
   font-size: 1.2rem;
-  color: #3f3f3f;
+  color: var(--subtext-color);
   margin-bottom: 30px;
   line-height: 1.6;
 }
@@ -41,8 +63,8 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: linear-gradient(135deg, #1f1f1f, #333);
-  color: #fff;
+  background: var(--button-bg);
+  color: var(--button-text);
   border: none;
   padding: 14px 30px;
   border-radius: 14px;
@@ -54,7 +76,7 @@
 }
 
 .register-btn:hover {
-  background: linear-gradient(135deg, #333, #000);
+  background: var(--button-hover-bg);
   transform: translateY(-3px);
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.2);
 }
@@ -92,7 +114,7 @@
   position: absolute;
   width: 200px;
   height: 200px;
-  background: radial-gradient(circle, rgba(255,255,255,0.6), transparent 70%);
+  background: radial-gradient(circle, var(--glow-color), transparent 70%);
   border-radius: 50%;
   filter: blur(80px);
   z-index: 0;
@@ -117,8 +139,6 @@
 }
 
 /* ---------- Responsive Design ---------- */
-
-/* Tablet View */
 @media (max-width: 1024px) {
   .landing-container {
     flex-direction: column;
@@ -139,7 +159,6 @@
   }
 }
 
-/* Mobile View */
 @media (max-width: 768px) {
   .landing-content h1 {
     font-size: 2rem;
@@ -160,7 +179,6 @@
   }
 }
 
-/* Small Mobile (Portrait) */
 @media (max-width: 480px) {
   .landing-container {
     padding: 6vh 5vw;

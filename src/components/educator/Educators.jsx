@@ -1,9 +1,8 @@
 import "./educators.css";
 import { useNavigate } from "react-router-dom";
-
 import EducatorCard from "./EducatorsCard";
 import { useEffect, useState } from "react";
-import axios from "axios"
+import axios from "axios";
 
 const Educators = () => {
   const navigate = useNavigate();
@@ -14,21 +13,16 @@ const Educators = () => {
       const educators = await axios.get(
         `${import.meta.env.VITE_API_URL}/api/educators/fetch`
       );
-      // console.log(educators.data.data);
       setData(educators.data.data);
     } catch (err) {
-      console.log("Error occured", err);
+      console.log("Error occurred", err);
     }
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     getEducators();
-  },[])
+  }, []);
 
-  useEffect(()=>{
-  },[data])
-
-  // Add this inside your component
   const scrollLeft = () => {
     document.getElementById("educators-video-container").scrollBy({
       left: -300,
@@ -50,26 +44,25 @@ const Educators = () => {
           Ft. Best IB Educators <span>on the planet</span>
         </h1>
         <p>
-          Nail IB is a home to top-tier educators, including
-          <span className="highlight">PatrickJMT</span> for Math AA SL. Patrick
+          Nail IB is home to top-tier educators, including
+          <span className="highlight"> PatrickJMT</span> for Math AA SL. Patrick
           has over <strong>1.2 million YouTube subscribers</strong>; our team
-          also boasts
-          <strong> certified IB examiners</strong> and
+          also boasts<strong> certified IB examiners</strong> and
           <strong> IB alumni with a perfect score!</strong>
         </p>
         <button>Explore IB Resources</button>
-        <p onClick={() => navigate("/signup")}>Registers (it's free)</p>
+        <p onClick={() => navigate("/signup")}>Register (it's free)</p>
       </div>
       <div className="educators-scroll-wrapper">
-        <button className="scroll-btn left" onClick={() => scrollLeft()}>
+        <button className="scroll-btn left" onClick={scrollLeft}>
           ←
         </button>
         <div id="educators-video-container">
-          {data.map(educator=>(
-            <EducatorCard key={educator._id} educator={educator}/>
+          {data.map((educator) => (
+            <EducatorCard key={educator._id} educator={educator} />
           ))}
         </div>
-        <button className="scroll-btn right" onClick={() => scrollRight()}>
+        <button className="scroll-btn right" onClick={scrollRight}>
           →
         </button>
       </div>

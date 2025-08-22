@@ -1,6 +1,6 @@
 import "./educators.css";
 
-const EducatorCard = ({educator}) => {
+const EducatorCard = ({ educator }) => {
   return (
     <div className="educator-card">
       {/* Video Section */}
@@ -11,7 +11,6 @@ const EducatorCard = ({educator}) => {
           frameBorder="0"
           allowFullScreen
           loading="lazy"
-          // allow="autoplay"
         ></iframe>
       </div>
 
@@ -22,8 +21,10 @@ const EducatorCard = ({educator}) => {
       {/* Video Courses Section */}
       <h4 className="video-courses-title">Video Courses</h4>
       <div className="video-courses">
-        {educator.course.map((course,index)=>(
-        <span className="course-tag" key={index}>{course}</span>
+        {educator.course.map((course, index) => (
+          <span className="course-tag" key={index}>
+            {course}
+          </span>
         ))}
       </div>
     </div>

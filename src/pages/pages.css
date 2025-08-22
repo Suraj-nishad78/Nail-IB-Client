@@ -1,22 +1,51 @@
-/* Container - white background */
+/* Root Theme Variables */
+:root {
+  --background-color: #ffffff;
+  /* --background-color: linear-gradient(135deg, #e7eaf7, #c3cfe2); */
+  --card-background: #ffffff;
+  --text-color: #000000;
+  --border-color: #dddddd;
+  --input-border: #000000;
+  --input-focus-border: #444444;
+  --button-background: #000000;
+  --button-text: #ffffff;
+  --link-color: #000000;
+  --link-hover: #555555;
+}
+
+[data-theme="dark"] {
+  /* --background-color: #121212; */
+  --background-color: linear-gradient(135deg, #1c1c1f, #2c2c34);
+  --card-background: #1e1e1e;
+  --text-color: #f1f1f1;
+  --border-color: #333333;
+  --input-border: #bbbbbb;
+  --input-focus-border: #ffffff;
+  --button-background: #f1f1f1;
+  --button-text: #000000;
+  --link-color: #f1f1f1;
+  --link-hover: #cccccc;
+}
+
+/* Container */
 .signup-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #fff;
+  background: var(--background-color);
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
-/* Card with fade-in animation */
+/* Card */
 .signup-card {
-  background: #fff;
+  background: var(--card-background);
   padding: 2.5rem;
   border-radius: 16px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
   width: 380px;
   text-align: center;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
   animation: fadeIn 0.8s ease-in-out;
 }
 
@@ -34,14 +63,14 @@
 /* Title */
 .signup-title {
   margin-bottom: 2rem;
-  color: #000;
+  color: var(--text-color);
   font-size: 26px;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
 
-/* Floating label input group */
+/* Input group */
 .form-group {
   position: relative;
   margin: 18px 0;
@@ -51,35 +80,34 @@
   width: 100%;
   padding: 12px 10px;
   border: none;
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid var(--input-border);
   background: transparent;
   font-size: 16px;
-  color: #000;
+  color: var(--text-color);
   outline: none;
   transition: border-color 0.3s;
 }
 
 .form-group input:focus {
-  border-color: #444;
+  border-color: var(--input-focus-border);
 }
 
 .form-group label {
   position: absolute;
   left: 10px;
   top: 12px;
-  color: #555;
+  color: var(--link-hover);
   font-size: 14px;
   pointer-events: none;
   transition: all 0.3s ease;
 }
 
-/* Floating effect */
 .form-group input:focus + label,
 .form-group input:valid + label {
   top: -8px;
   left: 5px;
   font-size: 12px;
-  color: #000;
+  color: var(--text-color);
 }
 
 /* Button */
@@ -87,10 +115,10 @@
   width: 100%;
   padding: 14px;
   margin-top: 20px;
-  border: 2px solid #000;
+  border: 2px solid var(--button-background);
   border-radius: 8px;
-  background: #000;
-  color: #fff;
+  background: var(--button-background);
+  color: var(--button-text);
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
@@ -100,7 +128,6 @@
   overflow: hidden;
 }
 
-/* Button animation */
 .signup-form button::before {
   content: "";
   position: absolute;
@@ -108,7 +135,7 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background: #fff;
+  background: var(--button-text);
   z-index: 1;
   transition: left 0.4s;
 }
@@ -123,8 +150,7 @@
 }
 
 .signup-form button:hover {
-  color: #000;
-  cursor: pointer;
+  color: var(--button-background);
 }
 
 /* Switch form text */
@@ -132,11 +158,11 @@
   margin-top: 20px;
   text-align: center;
   font-size: 14px;
-  color: #333;
+  color: var(--text-color);
 }
 
 .switch-form a {
-  color: #000;
+  color: var(--link-color);
   text-decoration: none;
   font-weight: 600;
   margin-left: 5px;
@@ -145,57 +171,61 @@
 }
 
 .switch-form a:hover {
-  color: #555;
-  border-bottom: 1px solid #000;
+  color: var(--link-hover);
+  border-bottom: 1px solid var(--link-color);
   cursor: pointer;
 }
-/*------------Responsive code---------*/
-/* Tablet Styles */
+
+/* Responsive */
 @media (min-width: 600px) and (max-width: 1023px) {
   .signup-card {
-    max-width: 380px; /* Slightly wider for tablets */
+    max-width: 380px;
     padding: 2.5rem;
   }
-
   .signup-title {
     font-size: 24px;
   }
 }
 
-/* Laptop & Desktop Styles */
 @media (min-width: 1024px) {
   .signup-card {
     max-width: 420px;
     padding: 3rem;
   }
-
   .signup-title {
     font-size: 26px;
   }
-
   .signup-form button {
     font-size: 18px;
   }
 }
 
-/* Small Mobile (optional fine-tuning for very small screens) */
 @media (max-width: 480px) {
   .signup-card {
-    max-width: 90%; /* Use almost full width */
+    max-width: 90%;
     padding: 1.5rem;
   }
-
   .signup-title {
     font-size: 20px;
   }
-
   .signup-form button {
     font-size: 14px;
   }
 }
 
 
-/*---------- Home Page Style -------*/
+
+/* ---------- Theme Variables ---------- */
+:root {
+  --home-bg-gradient: linear-gradient(135deg, #e7eaf7, #c3cfe2);
+}
+
+[data-theme="dark"] {
+  --home-bg-gradient: linear-gradient(135deg, #1c1c1f, #2c2c34);
+  /* --home-bg-gradient: black; */
+}
+
+/* ---------- Home Page Style ---------- */
 .home-container {
   width: 100%;
   min-height: 100vh;
@@ -210,13 +240,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #e7eaf7, #c3cfe2);
+  background: var(--home-bg-gradient);
 }
+
 .educators-container,
 .testmonials-container,
 .footer-container {
   width: 100%;
-  background: linear-gradient(135deg, #e7eaf7, #c3cfe2);
+  background: var(--home-bg-gradient);
 }
 
 .intro-container {
@@ -231,7 +262,7 @@
   height: 200vh; /* Ensures enough scroll area */
 }
 
-/*---------Image Setup--------------*/
+/* ---------- Image Setup ---------- */
 .msg-main-container {
   position: relative;
 }
@@ -239,17 +270,19 @@
 .msg-main-container #image-1 {
   position: absolute;
   top: 10%;
-  left: 0px;
+  left: 0;
   width: 250px;
   transform: rotate(330deg);
 }
+
 .msg-main-container #image-2 {
   position: absolute;
   top: 50%;
-  left: 0px;
+  left: 0;
   width: 250px;
   transform: rotate(330deg);
 }
+
 .msg-main-container #image-3 {
   position: absolute;
   top: 20px;
@@ -257,3 +290,29 @@
   width: 250px;
   transform: rotate(330deg);
 }
+
+/* ---------- Responsive Design ---------- */
+@media (max-width: 1024px) {
+  .msg-main-container #image-1,
+  .msg-main-container #image-2,
+  .msg-main-container #image-3 {
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .msg-main-container #image-1,
+  .msg-main-container #image-2,
+  .msg-main-container #image-3 {
+    width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .msg-main-container #image-1,
+  .msg-main-container #image-2,
+  .msg-main-container #image-3 {
+    width: 120px;
+  }
+}
+

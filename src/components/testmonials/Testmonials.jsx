@@ -20,6 +20,7 @@ const Testmonials = () => {
 
   useEffect(() => {
     getTestmonials();
+
     const handleKeyPress = (e) => {
       if (!containerRef.current) return;
 
@@ -35,6 +36,7 @@ const Testmonials = () => {
       window.removeEventListener("keydown", handleKeyPress);
     };
   }, []);
+
   return (
     <>
       <div className="testmonials-content">

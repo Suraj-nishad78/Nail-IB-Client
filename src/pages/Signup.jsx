@@ -6,40 +6,32 @@ import axios from "axios";
 
 const Signup = () => {
   const navigate = useNavigate();
-  const hanldeFormSwitch = () => {
-    navigate("/signin");
-  };
   const [input, setInput] = useState({
     name: "",
     email: "",
     username: "",
     password: "",
   });
-  const handleChangeName = (e) => {
-    setInput({ ...input, name: e.target.value });
+
+  const handleChange = (field) => (e) => {
+    setInput({ ...input, [field]: e.target.value });
   };
-  const handleChangeEmail = (e) => {
-    setInput({ ...input, email: e.target.value });
+
+  const hanldeFormSwitch = () => {
+    navigate("/signin");
   };
-  const handleChangeUsername = (e) => {
-    setInput({ ...input, username: e.target.value });
-  };
-  const handleChangePass = (e) => {
-    setInput({ ...input, password: e.target.value });
-  };
-  const checkEmail = (email) => {
-    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-    return regexEmail.test(email);
-  };
+
+  const checkEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+
   const submitForm = (e) => {
     e.preventDefault();
     const { name, email, username, password } = input;
-    if (!name.trim() && !email.trim() && !username.trim() && !password.trim()) {
+    if (!name.trim() || !email.trim() || !username.trim() || !password.trim()) {
       alert("Please fill the form!");
       return;
     }
     if (name.trim().length < 2) {
-      toast.error("Name must be more than 2 character.");
+      toast.error("Name must be more than 2 characters.");
       return;
     }
     if (!checkEmail(email.trim())) {
@@ -47,34 +39,30 @@ const Signup = () => {
       return;
     }
     if (username.trim().length < 4) {
-      toast.error("Username must be more than 4 Alphanumeric!.");
+      toast.error("Username must be at least 4 characters.");
       return;
     }
     if (password.trim().length < 6) {
-      toast.error(
-        "Password must be more than 6 Alphanumeric!"
-      );
+      toast.error("Password must be at least 6 characters.");
       return;
     }
     submitSignup(input);
   };
+
   async function submitSignup(form) {
     try {
-      const res = await axios.post(
+      await axios.post(
         `${import.meta.env.VITE_API_URL}/api/users/signup`,
         form
       );
       toast.success("Sign Up successfully. Please Login!");
       setInput({ name: "", email: "", username: "", password: "" });
     } catch (err) {
-      if (err.response) {
-        toast.error(err.response.data.error || "Something went wrong!");
-      } else {
-        toast.error("Server not reachable!");
-      }
-      console.log("Error", err);
+      toast.error(err.response?.data?.error || "Something went wrong!");
+      console.error("Error", err);
     }
   }
+
   return (
     <div className="signup-container">
       <div className="signup-card">
@@ -84,7 +72,7 @@ const Signup = () => {
             <input
               type="text"
               value={input.name}
-              onChange={handleChangeName}
+              onChange={handleChange("name")}
               required
             />
             <label>Name</label>
@@ -93,7 +81,7 @@ const Signup = () => {
             <input
               type="email"
               value={input.email}
-              onChange={handleChangeEmail}
+              onChange={handleChange("email")}
               required
             />
             <label>Email</label>
@@ -102,7 +90,7 @@ const Signup = () => {
             <input
               type="text"
               value={input.username}
-              onChange={handleChangeUsername}
+              onChange={handleChange("username")}
               required
             />
             <label>Username</label>
@@ -111,7 +99,7 @@ const Signup = () => {
             <input
               type="password"
               value={input.password}
-              onChange={handleChangePass}
+              onChange={handleChange("password")}
               required
             />
             <label>Password</label>
@@ -120,7 +108,6 @@ const Signup = () => {
             <span>Register</span>
           </button>
         </form>
-        {/* 👇 Switch form link */}
         <p className="switch-form">
           Already have an account? <a onClick={hanldeFormSwitch}>Login</a>
         </p>

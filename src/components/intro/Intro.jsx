@@ -1,8 +1,10 @@
+// src/components/Intro.jsx
 import { useNavigate } from "react-router-dom";
 import "./intro.css";
 
 const Intro = () => {
   const navigate = useNavigate();
+
   return (
     <div className="landing-container">
       <div className="landing-content">
@@ -16,16 +18,17 @@ const Intro = () => {
           <span className="icon">
             <img
               src="https://cdn.nailib.com/_next/static/media/logo-small.5691114d.svg?w=128&q=75"
-              alt=""
+              alt="logo"
             />
-          </span>{" "}
+          </span>
           Register (it's free)
         </button>
       </div>
+
       <div className="landing-image">
         <img
           src="https://cluely.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbutton-enter.2a75dca4.png&w=640&q=100"
-          alt="Cluely Preview"
+          alt="Preview"
         />
       </div>
     </div>
