@@ -41,6 +41,9 @@ const Testmonials = () => {
     };
   }, []);
 
+  useEffect(()=>{
+  },[testmonials])
+
   return (
     <>
       {/* Testmonials content  */}

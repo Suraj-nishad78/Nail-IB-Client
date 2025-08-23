@@ -26,6 +26,9 @@ const Educators = () => {
     getEducators();
   }, []);
 
+  useEffect(() => {
+  }, [data]);
+
   //Scroll method to left & right
   const scrollLeft = () => {
     document.getElementById("educators-video-container").scrollBy({
