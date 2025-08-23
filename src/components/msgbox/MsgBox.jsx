@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import "./msgbox.css";
 
-//MsgBox Component
 const MsgBox = () => {
   const [collapsed, setCollapsed] = useState(false);
 
-  //useEffect method for msg open & close based on scroll
   useEffect(() => {
     const handleScroll = () => {
       const msgBox = document.querySelector(".msg-box");
@@ -22,25 +20,23 @@ const MsgBox = () => {
   }, []);
 
   return (
-    //Content of the MsgBox Components
     <div className={`msg-box ${collapsed ? "collapsed" : ""}`}>
-      {!collapsed ? (
-        <>
-          <h3>How can Nail-IB help you score higher in my IB exams?</h3>
-          <p>
-            Nail-IB provides{" "}
-            <strong>everything you need to master the IB curriculum</strong> — from 5,000+ examiner-led videos and 37,000+ practice questions
-            to solved past papers, notes, flashcards, and graded IA/EE examples.
-            Whether you're revising for your finals, preparing your IA, or looking for quick topic explanations, Nail-IB helps you{" "}
-            <strong>study smarter, not harder.</strong>
-          </p>
-          <p className="hint">
-            Keep scrolling to explore IB notes, videos & papers.
-          </p>
-        </>
-      ) : (
-        <p className="collapsed-text">Keep scrolling ↓</p>
-      )}
+      <div className="msg-inner">
+        <h3>How can Nail-IB help you score higher in my IB exams?</h3>
+        <p>
+          Nail-IB provides{" "}
+          <strong>everything you need to master the IB curriculum</strong> — from
+          5,000+ examiner-led videos and 37,000+ practice questions to solved
+          past papers, notes, flashcards, and graded IA/EE examples. Whether
+          you're revising for your finals, preparing your IA, or looking for quick
+          topic explanations, Nail-IB helps you{" "}
+          <strong>study smarter, not harder.</strong>
+        </p>
+        <p className="hint">Keep scrolling to explore IB notes, videos & papers.</p>
+      </div>
+      <div className="collapsed-bar">
+        <span>Keep scrolling ↓</span>
+      </div>
     </div>
   );
 };

@@ -21,18 +21,18 @@
 
 /* ---------- Base Msg Box ---------- */
 .msg-box {
-  margin: 100px auto;
-  max-width: 600px;
+  margin: 60px auto;
+  max-width: 480px;
   background: var(--msg-bg);
-  border-radius: 20px;
-  padding: 32px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-  text-align: left;
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   font-family: "Poppins", sans-serif;
   border: 1px solid var(--msg-border);
   position: relative;
   overflow: hidden;
+  transition: max-width 0.5s ease, padding 0.5s ease, border-left 0.5s ease,
+    transform 0.4s ease;
 }
 
 .msg-box::before {
@@ -42,17 +42,25 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(79, 70, 229, 0.08) 10%, transparent 70%);
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.05) 10%, transparent 70%);
   transform: rotate(25deg);
   z-index: 0;
 }
 
+.msg-inner {
+  max-height: 400px;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.4s ease, transform 0.4s ease;
+  opacity: 1;
+  transform: scale(1);
+}
+
 /* Heading */
 .msg-box h3 {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--msg-heading);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   padding-bottom: 6px;
   position: relative;
   z-index: 1;
@@ -63,18 +71,17 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 50px;
+  width: 40px;
   height: 3px;
   background: var(--msg-heading);
   border-radius: 2px;
 }
 
-/* Main content */
 .msg-box p {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--msg-text);
-  line-height: 1.7;
-  margin: 14px 0;
+  line-height: 1.6;
+  margin: 12px 0;
   z-index: 1;
   position: relative;
 }
@@ -84,16 +91,15 @@
   font-weight: 600;
 }
 
-/* Hint/CTA */
 .hint {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: var(--msg-hint-text);
   background: var(--msg-hint-bg);
-  padding: 8px 14px;
-  border-radius: 50px;
+  padding: 7px 12px;
+  border-radius: 40px;
   display: inline-block;
-  margin-top: 18px;
+  margin-top: 14px;
   box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
   transition: all 0.3s ease;
 }
@@ -105,80 +111,53 @@
 
 /* ---------- Collapsed State ---------- */
 .msg-box.collapsed {
-  max-width: 320px;
-  padding: 14px 20px;
+  max-width: 280px;
+  padding: 10px 16px;
   border-left: 3px solid var(--msg-collapsed-border);
 }
 
-.msg-box.collapsed h3,
-.msg-box.collapsed p:not(.collapsed-text) {
-  display: none;
+.msg-box.collapsed .msg-inner {
+  max-height: 0;
+  opacity: 0;
+  transform: scale(0.95);
 }
 
-.collapsed-text {
-  font-weight: bold;
-  font-size: 1rem;
+.collapsed-bar {
+  display: none;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.85rem;
   color: var(--msg-heading);
   text-transform: uppercase;
   letter-spacing: 0.6px;
-  text-align: center;
-  animation: floatText 1.8s ease-in-out infinite;
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
-@keyframes floatText {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-4px);
-  }
+.msg-box.collapsed .collapsed-bar {
+  display: block;
+  opacity: 1;
+  animation: floatBar 1.8s ease-in-out infinite;
 }
 
-/* ---------- Responsive Design ---------- */
-@media (max-width: 1024px) {
-  .msg-box {
-    max-width: 90%;
-    padding: 28px;
-  }
-  .msg-box h3 {
-    font-size: 1.3rem;
-  }
-  .msg-box p {
-    font-size: 0.95rem;
-  }
+@keyframes floatBar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
 }
 
+/* ---------- Responsive ---------- */
 @media (max-width: 768px) {
   .msg-box {
-    margin: 60px auto;
-    padding: 24px;
-  }
-  .msg-box h3 {
-    font-size: 1.2rem;
-  }
-  .msg-box p {
-    font-size: 0.9rem;
-    line-height: 1.6;
-  }
-  .hint {
-    font-size: 0.9rem;
-    padding: 7px 12px;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 90%;
   }
 }
 
 @media (max-width: 480px) {
   .msg-box {
-    margin: 40px 16px;
-    padding: 20px;
-    border-radius: 16px;
-  }
-  .msg-box h3 {
-    font-size: 1.1rem;
-  }
-  .msg-box p {
-    font-size: 0.88rem;
-  }
-  .collapsed-text {
-    font-size: 0.9rem;
+    margin: 30px 12px;
+    padding: 18px;
+    border-radius: 14px;
   }
 }
