@@ -3,13 +3,14 @@ import { useNavigate } from "react-router-dom";
 import EducatorCard from "./EducatorsCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { ClipLoader } from "react-spinners"; // Spinner import
 
 const Educators = () => {
   const navigate = useNavigate();
-  //State for data hanlde from mangodb
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true); // Loading state
 
-  //API call to get educators data from mongodb
+  // API call to get educators data from MongoDB
   const getEducators = async () => {
     try {
       const educators = await axios.get(
@@ -18,18 +19,15 @@ const Educators = () => {
       setData(educators.data.data);
     } catch (err) {
       console.log("Error occurred", err);
+    } finally {
+      setLoading(false); // Stop loading after API call
     }
   };
 
-  //method call on mounting
   useEffect(() => {
     getEducators();
   }, []);
 
-  useEffect(() => {
-  }, [data]);
-
-  //Scroll method to left & right
   const scrollLeft = () => {
     document.getElementById("educators-video-container").scrollBy({
       left: -300,
@@ -46,7 +44,7 @@ const Educators = () => {
 
   return (
     <>
-    {/* Educators content  */}
+      {/* Educators content */}
       <div className="educators-content">
         <h1>
           Ft. Best IB Educators <span>on the planet</span>
@@ -61,19 +59,26 @@ const Educators = () => {
         <button>Explore IB Resources</button>
         <p onClick={() => navigate("/signup")}>Register (it's free)</p>
       </div>
-      {/* Educator card Component listed here & scroll btn  */}
+
+      {/* Educator card Component listed here & scroll btn */}
       <div className="educators-scroll-wrapper">
-        <button className="scroll-btn left" onClick={scrollLeft}>
-          ←
-        </button>
-        <div id="educators-video-container">
-          {data.map((educator) => (
-            <EducatorCard key={educator._id} educator={educator} />
-          ))}
-        </div>
-        <button className="scroll-btn right" onClick={scrollRight}>
-          →
-        </button>
+        {loading ? (
+          <div style={{ display: "flex", justifyContent: "center", padding: "50px 0" }}>
+            <ClipLoader color="#007bff" size={50} />
+          </div>
+        ) : data.length > 0 ? (
+          <>
+            <button className="scroll-btn left" onClick={scrollLeft}>←</button>
+            <div id="educators-video-container">
+              {data.map((educator) => (
+                <EducatorCard key={educator._id} educator={educator} />
+              ))}
+            </div>
+            <button className="scroll-btn right" onClick={scrollRight}>→</button>
+          </>
+        ) : (
+          <p className="no-data-text">No educators available</p>
+        )}
       </div>
     </>
   );

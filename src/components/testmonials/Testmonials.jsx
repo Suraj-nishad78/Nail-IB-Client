@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import TestmonialsCard from "./TestmonialsCard";
+import { ClipLoader } from "react-spinners"; // Import spinner
 import "./testmonials.css";
 import axios from "axios";
 
-//testmonials component
 const Testmonials = () => {
   const containerRef = useRef(null);
   const [testmonials, setTestmonials] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  //api call for to get testmonials from mongodb
   const getTestmonials = async () => {
     try {
       const res = await axios.get(
@@ -16,13 +16,13 @@ const Testmonials = () => {
       );
       setTestmonials(res.data.data);
     } catch (err) {
-      console.log("Error while fetching testmonials ", err);
+      console.log("Error while fetching testimonials", err);
+    } finally {
+      setLoading(false);
     }
   };
 
-  //useEffect method to hanlde scroll left to right 
   useEffect(() => {
-    //api call method on app mounting
     getTestmonials();
 
     const handleKeyPress = (e) => {
@@ -41,12 +41,11 @@ const Testmonials = () => {
     };
   }, []);
 
-  useEffect(()=>{
-  },[testmonials])
+  useEffect(() => {
+  }, [testmonials]);
 
   return (
     <>
-      {/* Testmonials content  */}
       <div className="testmonials-content">
         <h1>Real Stories, Real Impact</h1>
         <p>
@@ -55,13 +54,21 @@ const Testmonials = () => {
           for your own IB journey.
         </p>
       </div>
-      {/* Testmonials card component listed here */}
+
       <div className="testmonials-wrapper">
-        <div className="testmonials-memeber" ref={containerRef}>
-          {testmonials.map((test) => (
-            <TestmonialsCard key={test._id} test={test} />
-          ))}
-        </div>
+        {loading ? (
+          <div style={{ display: "flex", justifyContent: "center", padding: "50px 0" }}>
+            <ClipLoader color="#007bff" size={50} />
+          </div>
+        ) : testmonials.length > 0 ? (
+          <div className="testmonials-memeber" ref={containerRef}>
+            {testmonials.map((test) => (
+              <TestmonialsCard key={test._id} test={test} />
+            ))}
+          </div>
+        ) : (
+          <p className="no-data-text">No testimonials available</p>
+        )}
       </div>
     </>
   );
