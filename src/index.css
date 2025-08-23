@@ -1,8 +1,4 @@
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+ 
 *{
   margin: 0;
   padding: 0;
@@ -12,5 +8,5 @@ body{
 }
 
 body.dark-theme{
-  --footer-bg: linear-gradient(135deg, #1c1c1f, #2c2c34);
+  background: linear-gradient(135deg, #1c1c1f, #2c2c34);
 }

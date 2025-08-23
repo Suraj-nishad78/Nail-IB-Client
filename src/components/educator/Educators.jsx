@@ -6,8 +6,10 @@ import axios from "axios";
 
 const Educators = () => {
   const navigate = useNavigate();
+  //State for data hanlde from mangodb
   const [data, setData] = useState([]);
 
+  //API call to get educators data from mongodb
   const getEducators = async () => {
     try {
       const educators = await axios.get(
@@ -19,10 +21,12 @@ const Educators = () => {
     }
   };
 
+  //method call on mounting
   useEffect(() => {
     getEducators();
   }, []);
 
+  //Scroll method to left & right
   const scrollLeft = () => {
     document.getElementById("educators-video-container").scrollBy({
       left: -300,
@@ -39,6 +43,7 @@ const Educators = () => {
 
   return (
     <>
+    {/* Educators content  */}
       <div className="educators-content">
         <h1>
           Ft. Best IB Educators <span>on the planet</span>
@@ -53,6 +58,7 @@ const Educators = () => {
         <button>Explore IB Resources</button>
         <p onClick={() => navigate("/signup")}>Register (it's free)</p>
       </div>
+      {/* Educator card Component listed here & scroll btn  */}
       <div className="educators-scroll-wrapper">
         <button className="scroll-btn left" onClick={scrollLeft}>
           ←

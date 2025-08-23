@@ -3,7 +3,9 @@ import "./footer.css";
 const Footer = () => {
   return (
     <>
+         {/*Footer component  */}
       <div className="footerbar">
+        {/* Footer icon */}
         <div className="footer-icon">
           <img src="https://cdn.nailib.com/_next/static/media/logo-small.5691114d.svg?w=128&q=75" />
           <span>Nail-IB</span>
@@ -11,7 +13,9 @@ const Footer = () => {
             We offer the services you need to succeed online. Get in touch with
             us and let us help you transform your online presence.
           </p>
+          {/* Footer list of details */}
           <ul>
+            {/* Social media connect link */}
             <li>
               <i className="fa-brands fa-facebook-f"></i>
             </li>
@@ -32,6 +36,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
+        {/* Pages link listed here */}
         <div className="footer-content">
           <h2>Pages</h2>
           <ul>
@@ -40,6 +45,7 @@ const Footer = () => {
             <li>Contact Us</li>
           </ul>
         </div>
+        {/* Services link listed here  */}
         <div className="footer-content">
           <h2>Services</h2>
           <ul>
@@ -50,6 +56,7 @@ const Footer = () => {
             <li>Comprehensive Revision Notes</li>
           </ul>
         </div>
+        {/* Product link listed here  */}
         <div className="footer-content">
           <h2>Products</h2>
           <ul>
@@ -60,6 +67,7 @@ const Footer = () => {
             <li>Documented IB Notes Library</li>
           </ul>
         </div>
+        {/* Quick link listed here  */}
         <div className="footer-content">
           <h2>Quick Links</h2>
           <ul>

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
 
+//Signup component
 const Signup = () => {
   const navigate = useNavigate();
   const [input, setInput] = useState({
@@ -13,23 +14,31 @@ const Signup = () => {
     password: "",
   });
 
+  //controlled component by state 
   const handleChange = (field) => (e) => {
     setInput({ ...input, [field]: e.target.value });
   };
 
+  //form switch
   const hanldeFormSwitch = () => {
     navigate("/signin");
   };
 
+//validation for email
   const checkEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
 
+  //submit form 
   const submitForm = (e) => {
+    //prevent refresh the page 
     e.preventDefault();
+
+    //form input data 
     const { name, email, username, password } = input;
     if (!name.trim() || !email.trim() || !username.trim() || !password.trim()) {
       alert("Please fill the form!");
       return;
     }
+    //validation for name,email,username, password
     if (name.trim().length < 2) {
       toast.error("Name must be more than 2 characters.");
       return;
@@ -49,21 +58,28 @@ const Signup = () => {
     submitSignup(input);
   };
 
+  //submit form data into the database
   async function submitSignup(form) {
     try {
+      //api call to post data 
       await axios.post(
         `${import.meta.env.VITE_API_URL}/api/users/signup`,
         form
       );
+
+      //response data is correctly input
       toast.success("Sign Up successfully. Please Login!");
       setInput({ name: "", email: "", username: "", password: "" });
     } catch (err) {
+
+      //response error if any error occured while posi=ting data in the data base 
       toast.error(err.response?.data?.error || "Something went wrong!");
       console.error("Error", err);
     }
   }
 
   return (
+    //signup form  
     <div className="signup-container">
       <div className="signup-card">
         <h1 className="signup-title">Sign Up</h1>
@@ -108,6 +124,7 @@ const Signup = () => {
             <span>Register</span>
           </button>
         </form>
+        {/* switch  from signup to signin form */}
         <p className="switch-form">
           Already have an account? <a onClick={hanldeFormSwitch}>Login</a>
         </p>

@@ -1,5 +1,6 @@
 import "./Testmonials.css";
 
+//testmonials card component
 const TestmonialsCard = ({ test }) => {
   return (
     <div className="test-member-content">

@@ -3,10 +3,12 @@ import TestmonialsCard from "./TestmonialsCard";
 import "./testmonials.css";
 import axios from "axios";
 
+//testmonials component
 const Testmonials = () => {
   const containerRef = useRef(null);
   const [testmonials, setTestmonials] = useState([]);
 
+  //api call for to get testmonials from mongodb
   const getTestmonials = async () => {
     try {
       const res = await axios.get(
@@ -18,7 +20,9 @@ const Testmonials = () => {
     }
   };
 
+  //useEffect method to hanlde scroll left to right 
   useEffect(() => {
+    //api call method on app mounting
     getTestmonials();
 
     const handleKeyPress = (e) => {
@@ -39,6 +43,7 @@ const Testmonials = () => {
 
   return (
     <>
+      {/* Testmonials content  */}
       <div className="testmonials-content">
         <h1>Real Stories, Real Impact</h1>
         <p>
@@ -47,6 +52,7 @@ const Testmonials = () => {
           for your own IB journey.
         </p>
       </div>
+      {/* Testmonials card component listed here */}
       <div className="testmonials-wrapper">
         <div className="testmonials-memeber" ref={containerRef}>
           {testmonials.map((test) => (

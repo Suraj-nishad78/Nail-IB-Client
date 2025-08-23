@@ -2,7 +2,8 @@
 :root {
   --background-color: #ffffff;
   /* --background-color: linear-gradient(135deg, #e7eaf7, #c3cfe2); */
-  --card-background: #ffffff;
+  /* --card-background: #ffffff; */
+  --card-background-sign: #ffffff;
   --text-color: #000000;
   --border-color: #dddddd;
   --input-border: #000000;
@@ -16,7 +17,8 @@
 [data-theme="dark"] {
   /* --background-color: #121212; */
   --background-color: linear-gradient(135deg, #1c1c1f, #2c2c34);
-  --card-background: #1e1e1e;
+  /* --card-background: #1e1e1e; */
+  --card-background-sign: #1e1e1e;
   --text-color: #f1f1f1;
   --border-color: #333333;
   --input-border: #bbbbbb;
@@ -39,7 +41,7 @@
 
 /* Card */
 .signup-card {
-  background: var(--card-background);
+  background: var(--card-background-sign);
   padding: 2.5rem;
   border-radius: 16px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);

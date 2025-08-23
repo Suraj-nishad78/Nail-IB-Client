@@ -12,6 +12,7 @@ function App() {
   // State to hold userId
   const [userId, setUserId] = useState(localStorage.getItem("userId") || "");
 
+  //method call when userId state change
   useEffect(() => {
     if (userId) {
       localStorage.setItem("userId", userId);
@@ -20,6 +21,7 @@ function App() {
     }
   }, [userId]);
 
+  //run on when react mounting
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     if(savedTheme=="dark"){

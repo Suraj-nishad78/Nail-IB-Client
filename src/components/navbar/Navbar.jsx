@@ -4,12 +4,15 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context";
 import { toast } from "react-toastify";
 
+//Navbar Component 
 const Navbar = () => {
+  //State that hanlde the navbar 
   const [isOpen, setIsOpen] = useState(false);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const { userId, setUserId } = useContext(UserContext);
   const navigate = useNavigate();
 
+  //logout method 
   const logoutUser = () => {
     setUserId("");
     localStorage.removeItem("userId");
@@ -17,6 +20,7 @@ const Navbar = () => {
     toast.success("You have successfully logged out!");
   };
 
+  //toggle theme method 
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
@@ -25,15 +29,18 @@ const Navbar = () => {
     localStorage.setItem("theme", newTheme);
   };
   
+  //updating app component when theme change 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
   return (
+    //Navbar component details 
     <nav className="navbar">
       <div className="navbar-container">
         {/* Left Navigation */}
         <div className="left-nav">
+          {/* Navbar log & title */}
           <div className="navbar-logo">
             <img
               src="https://cdn.nailib.com/_next/static/media/logo-small.5691114d.svg?w=128&q=75"

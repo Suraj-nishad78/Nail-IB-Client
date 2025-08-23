@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import "./msgbox.css";
 
+//MsgBox Component
 const MsgBox = () => {
   const [collapsed, setCollapsed] = useState(false);
 
+  //useEffect method for msg open & close based on scroll
   useEffect(() => {
     const handleScroll = () => {
       const msgBox = document.querySelector(".msg-box");
@@ -20,6 +22,7 @@ const MsgBox = () => {
   }, []);
 
   return (
+    //Content of the MsgBox Components
     <div className={`msg-box ${collapsed ? "collapsed" : ""}`}>
       {!collapsed ? (
         <>

@@ -6,6 +6,7 @@ const Intro = () => {
   const navigate = useNavigate();
 
   return (
+    // Intro Component content
     <div className="landing-container">
       <div className="landing-content">
         <h1>The Largest IB Resources Platform On The Planet</h1>
