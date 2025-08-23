@@ -1,4 +1,4 @@
-import "./Testmonials.css";
+import "./testmonials.css";
 
 //testmonials card component
 const TestmonialsCard = ({ test }) => {
