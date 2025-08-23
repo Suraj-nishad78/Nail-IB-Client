@@ -314,7 +314,8 @@
   .msg-main-container #image-1,
   .msg-main-container #image-2,
   .msg-main-container #image-3 {
-    width: 120px;
+    /* width: 120px; */
+    display: none;
   }
 }
 

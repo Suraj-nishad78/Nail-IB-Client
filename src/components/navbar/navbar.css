@@ -1,4 +1,4 @@
-/* Light Theme (Default) */
+/* Light Theme */
 :root {
   --navbar-bg: #ffffff;
   --navbar-text: #111;
@@ -43,7 +43,6 @@
 
 .left-nav {
   display: flex;
-  justify-content: space-around;
   align-items: center;
 }
 
@@ -84,7 +83,6 @@
 
 .navbar-cta {
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 1em;
 }
@@ -115,8 +113,6 @@
   color: var(--navbar-text);
 }
 
-/* Mobile First */
-
 /* Mobile (≤768px) */
 @media (max-width: 768px) {
   .navbar-container {
@@ -135,7 +131,7 @@
     background-color: var(--navbar-bg);
     flex-direction: column;
     gap: 1rem;
-    padding: 1rem 0;
+    padding: 1.2rem 1.5rem; /* added left padding for better spacing */
     display: none;
     border-top: 1px solid var(--navbar-border);
   }
@@ -145,11 +141,17 @@
   }
 
   .navbar-cta {
-    display: none;
+    display: none; /* hide desktop buttons in mobile */
   }
 
-  .navbar-links.active li:last-child {
-    margin-top: 1rem;
+  .navbar-links li {
+    padding-left: 0.5rem; /* extra padding for neat look */
+  }
+
+  .mobile-register,
+  .mobile-logout,
+  .mobile-theme-toggle {
+    margin-top: 0.8rem;
   }
 
   .navbar-toggle {
@@ -195,7 +197,7 @@
   }
 }
 
-/* Laptop/Desktop (≥1024px) */
+/* Desktop (≥1024px) */
 @media (min-width: 1024px) {
   .navbar-container {
     padding: 1rem 3rem;
